@@ -9,35 +9,63 @@
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/script.js" defer></script>
   </head>
+
   <body>
     <div class="container">
+      <!-- ===============================================================
+        Header
+      ================================================================ -->
       <header>
         <div class="header-left">
           <img class="logo" src="images/logo.svg" alt="logo sneakers" />
+
+          <!-- Main navigation -->
           <nav>
-            <!-- Checkbox Sidebar -->
-            <input type="checkbox" name="sidebar-active" id="sidebar-active" />
-            <label for="sidebar-active" class="open-sidebar-button">
-              <svg width="16" height="15" xmlns="http://www.w3.org/2000/svg">
+            <button
+              class="open-sidebar-button"
+              type="button"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="primary-navigation"
+            >
+              <svg
+                width="16"
+                height="15"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                focusable="false"
+              >
                 <path
                   d="M16 12v3H0v-3h16Zm0-6v3H0V6h16Zm0-6v3H0V0h16Z"
                   fill="#69707D"
                   fill-rule="evenodd"
                 />
               </svg>
-            </label>
-            <!-- Checkbox Sidebar -->
-            <label for="sidebar-active" id="overlay"></label>
-            <div class="links-container">
-              <label for="sidebar-active" class="close-sidebar-button">
-                <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
+            </button>
+
+            <div id="overlay" aria-hidden="true"></div>
+
+            <div class="links-container" id="primary-navigation">
+              <button
+                class="close-sidebar-button"
+                type="button"
+                aria-label="Close menu"
+              >
+                <svg
+                  width="14"
+                  height="15"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  focusable="false"
+                >
                   <path
                     d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
                     fill="#69707D"
                     fill-rule="evenodd"
                   />
                 </svg>
-              </label>
+              </button>
+
               <ul>
                 <li><a href="#collections">Collections</a></li>
                 <li><a href="#collections">Men</a></li>
@@ -48,81 +76,158 @@
             </div>
           </nav>
         </div>
+
+        <!-- Header actions -->
         <div class="header-actions">
-          <button class="open-cart">
-            <img src="images/icon-cart.svg" alt="shopping cart" />
+          <button
+            class="open-cart"
+            type="button"
+            aria-label="Open cart"
+            aria-expanded="false"
+            aria-controls="cart-panel"
+          >
+            <img src="images/icon-cart.svg" alt="" />
+            <span class="cart-counter" aria-hidden="true" hidden></span>
           </button>
-          <img class="avatar" src="images/image-avatar.png" alt="" />
+
+          <button class="avatar-btn" type="button" aria-label="User avatar">
+            <img class="avatar" src="images/image-avatar.png" alt="" />
+          </button>
+
+          <!-- Cart panel -->
+          <div
+            class="cart-panel"
+            id="cart-panel"
+            role="region"
+            aria-label="Shopping cart"
+            hidden
+          >
+            <div class="cart-title">Cart</div>
+
+            <div class="cart-content"></div>
+          </div>
+
+          <span class="sr-only cart-status" aria-live="polite"></span>
         </div>
       </header>
+
+      <!-- ===============================================================
+        Main Content
+      ================================================================ -->
       <main class="site-main">
-        <!-- PRODUCT SHOWCASE SECTION -->
         <section class="product-showcase">
-          <!-- LIGHTBOX -->
+          <!-- ===========================================================
+            Lightbox
+          ============================================================ -->
           <div class="lightbox">
             <div class="lightbox-wrapper">
               <div class="lightbox-content">
-                <button class="lightbox-close" aria-label="Close lightbox">
-                  <img src="images/icon-close.svg" alt="close lightbox" />
+                <button
+                  class="lightbox-close"
+                  type="button"
+                  aria-label="Close lightbox"
+                >
+                  <img src="images/icon-close.svg" alt="" />
                 </button>
-                <button class="lightbox-control lightbox-control__previous">
-                  <img src="images/icon-previous.svg" alt="previous" />
+
+                <button
+                  class="lightbox-control lightbox-control__previous"
+                  type="button"
+                  aria-label="Previous product image"
+                >
+                  <img src="images/icon-previous.svg" alt="" />
                 </button>
+
                 <img id="lightbox-img" class="lightbox-img" alt="" />
-                <button class="lightbox-control lightbox-control__next">
-                  <img src="images/icon-next.svg" alt="next" />
+
+                <button
+                  class="lightbox-control lightbox-control__next"
+                  type="button"
+                  aria-label="Next product image"
+                >
+                  <img src="images/icon-next.svg" alt="" />
                 </button>
               </div>
+
+              <!-- Lightbox thumbnail buttons are generated by JavaScript -->
               <div class="lightbox-thumbnails"></div>
             </div>
           </div>
-          <!-- PRODUCT GALLERY -->
+
+          <!-- ===========================================================
+            Product Gallery
+          ============================================================ -->
           <div class="product-gallery">
+            <!-- Main preview image -->
             <div class="image-preview">
-              <button class="btn-image-preview" type="button">
+              <button
+                class="btn-image-preview"
+                type="button"
+                aria-label="Open product image gallery"
+              >
                 <img src="images/image-product-1.jpg" alt="product one" />
               </button>
             </div>
+
+            <!-- Thumbnail buttons are generated by JavaScript -->
             <div class="product-images"></div>
           </div>
+
+          <!-- ===========================================================
+            Product Information
+          ============================================================ -->
           <div class="product-info">
             <h2 class="brand">sneaker company</h2>
             <h1 class="product-name">Fall Limited Edition Sneakers</h1>
+
             <p class="product-description">
               These low-profile sneakers are your perfect casual wear companion.
               Featuring a durable rubber outer sole. They'll withstand
               everything the weather offer.
             </p>
-            <p class="price">$125.00 <span class="discount">50%</span></p>
-            <p class="old-price">$250</p>
+            <div class="price-row">
+              <p class="price">$125.00 <span class="discount">50%</span></p>
+              <p class="old-price">$250</p>
+            </div>
 
+            <!-- Product quantity and add-to-cart actions -->
             <div class="btn-group">
               <div class="custom-num-input">
-                <img
+                <button
                   class="btn-minus"
-                  src="images/icon-minus.svg"
-                  alt="icon minus"
-                />
+                  type="button"
+                  aria-label="Decrease quantity"
+                >
+                  <img src="images/icon-minus.svg" alt="" />
+                </button>
+
                 <input
                   type="number"
                   name="quantity"
                   id="quantity"
+                  aria-label="Quantity"
                   min="0"
                   max="100"
                   value="0"
                 />
-                <img
+
+                <button
                   class="btn-plus"
-                  src="images/icon-plus.svg"
-                  alt="icon plus"
-                />
+                  type="button"
+                  aria-label="Increase quantity"
+                >
+                  <img src="images/icon-plus.svg" alt="" />
+                </button>
               </div>
-              <button class="btn-add-to-cart">
+
+              <button class="button btn-add-to-cart" type="button">
                 <svg
                   width="20"
                   height="18"
                   viewBox="0 0 22 20"
                   xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  focusable="false"
                 >
                   <path
                     d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
@@ -130,6 +235,7 @@
                     fill-rule="nonzero"
                   />
                 </svg>
+
                 Add to Cart
               </button>
             </div>

@@ -21,7 +21,7 @@
 }
 
 .button {
-  display: inline-flex;
+  /* display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 2.75rem;
@@ -31,11 +31,17 @@
   color: var(--color-white);
   font-weight: 700;
   line-height: 1;
-  text-decoration: none;
+  text-decoration: none; */
+  background-color: var(--color-orange);
+  color: var(--color-very-dark-blue);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: 0.3s ease;
 }
 
 .button:hover,
 .button:focus-visible {
-  background-color: var(--color-accent-hover);
-  color: var(--color-white);
+  background-color: var(--color-button-hover);
+  /* color: var(--color-white); */
 }
