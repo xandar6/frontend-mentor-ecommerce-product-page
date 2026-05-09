@@ -6,6 +6,10 @@ The goal of this challenge was to build a responsive product page with an image 
 
 ## Overview
 
+## Screenshot
+
+![Screenshot of the finished e-commerce product page](./screenshot.png)
+
 Users can:
 
 - View responsive desktop and mobile layouts
