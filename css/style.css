@@ -12,8 +12,8 @@ header {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 90px;
-  border-bottom: 1px solid rgba(240, 240, 240, 0.753);
+  min-height: 5.625rem;
+  border-bottom: 1px solid rgba(240, 240, 240, 0.916);
 }
 
 .header-left,
@@ -74,7 +74,7 @@ header ul li a:focus-visible {
 .header-actions {
   display: flex;
   gap: var(--space-6);
-  margin-left: auto;
+  margin-inline-start: auto;
   position: relative;
 }
 
@@ -85,8 +85,8 @@ header ul li a:focus-visible {
 
 .cart-counter {
   position: absolute;
-  top: 5px;
-  right: 0;
+  inset-block-start: 0.3125rem;
+  inset-inline-end: 0;
   display: grid;
   place-items: center;
   font-size: var(--space-2);
@@ -293,6 +293,8 @@ header ul li a:focus-visible {
   z-index: 100;
   display: none;
   place-items: center;
+  overflow-y: auto;
+  padding: var(--space-5);
 }
 
 .lightbox.is-open {
@@ -324,8 +326,8 @@ header ul li a:focus-visible {
 
 .lightbox-close {
   position: absolute;
-  right: 0;
-  bottom: calc(100% + var(--space-4));
+  inset-inline-end: 0;
+  inset-block-end: calc(100% + var(--space-4));
 }
 
 .lightbox-close img {
@@ -334,8 +336,8 @@ header ul li a:focus-visible {
 
 .lightbox-control {
   background-color: var(--color-white);
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   display: grid;
   place-items: center;
   border-radius: 50%;
@@ -345,13 +347,13 @@ header ul li a:focus-visible {
 
 .lightbox-control__previous {
   padding: 0;
-  left: 0;
+  inset-inline-start: 0;
   transform: translate(-50%, -50%);
 }
 
 .lightbox-control__next {
   padding: 0;
-  right: 0;
+  inset-inline-end: 0;
   transform: translate(50%, -50%);
 }
 
@@ -462,7 +464,7 @@ header ul li a:focus-visible {
    Responsive Styles
    ========================================================================== */
 
-@media (max-width: 780px) {
+@media (max-width: 48.75em) {
   .container {
     margin: 0;
     width: 100%;
@@ -507,16 +509,16 @@ header ul li a:focus-visible {
     box-shadow: var(--shadow-sm);
     padding: var(--space-3);
     position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
+    inset-block: 0;
+    inset-inline-start: 0;
     z-index: 10;
     background-color: var(--color-white);
+    overflow-y: auto;
     transform: translateX(-100%);
     transition: transform 0.35s ease-out;
   }
 
-  #overlay {
+  .mobile-menu-overlay {
     position: fixed;
     inset: 0;
     z-index: 9;
@@ -537,7 +539,7 @@ header ul li a:focus-visible {
     transform: translateX(0);
   }
 
-  #overlay.is-open {
+  .mobile-menu-overlay.is-open {
     opacity: 1;
     pointer-events: auto;
   }
@@ -561,6 +563,7 @@ header ul li a:focus-visible {
     position: static;
     display: grid;
     z-index: unset;
+    padding: 0;
   }
 
   .lightbox-img {
@@ -574,11 +577,11 @@ header ul li a:focus-visible {
   }
 
   .lightbox-control__previous {
-    left: 30px;
+    inset-inline-start: 1.875rem;
   }
 
   .lightbox-control__next {
-    right: 30px;
+    inset-inline-end: 1.875rem;
   }
 
   .product-info {
@@ -624,7 +627,7 @@ header ul li a:focus-visible {
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 24.375em) {
   .header-actions {
     gap: var(--space-4);
   }
