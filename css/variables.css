@@ -40,7 +40,7 @@
   --space-8: 4rem;
   --space-9: 6rem;
   /* Layout */
-  --container-max: 69.375rem;
+  --container-max: 62.5rem;
   --container-padding: 1rem;
   --section-padding: clamp(2rem, 6vw, 5rem);
 
